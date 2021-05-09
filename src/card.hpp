@@ -1,6 +1,7 @@
 #ifndef CARD_HPP
 #define CARD_HPP
 #include <vector>
+#include <iostream>
 
 class Card {
     public:
@@ -29,15 +30,21 @@ class Card {
         static std::vector<Suit> all_suits;
 
     private:
-        Card::Face face;
-        Card::Suit suit;
-
+        Card::Face _face;
+        Card::Suit _suit;
+        bool _is_hidden;
 
     public:
         Card(Card::Face, Card::Suit);
-        Card::Face getFace();
-        Card::Suit getSuit();
+        Card::Face getFace() const;
+        Card::Suit getSuit() const;
+        bool isHidden() const;
+        std::string faceToString();
+        std::string suitToString();
+        void reveal();
+        void hide();
         bool operator==(const Card& c);
         bool operator!=(const Card& c);
+        friend std::ostream& operator<<(std::ostream&, Card);
 };
 #endif

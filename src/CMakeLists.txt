@@ -1,5 +1,10 @@
 project(blackjack)
-add_library(blackjack_lib STATIC card.cpp card.hpp deck.cpp deck.hpp)
+add_library(blackjack_lib STATIC 
+    card.cpp card.hpp
+    deck.cpp deck.hpp 
+    player.cpp player.hpp
+    game.cpp game.hpp
+)
 target_include_directories(blackjack_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(blackjack main.cpp)

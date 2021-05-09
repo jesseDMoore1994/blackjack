@@ -5,13 +5,13 @@
 #include <iterator>
 #include <vector>
 
-SCENARIO( "Deck Operations.", "[card]" ) {
+SCENARIO( "Deck Operations.", "[deck]" ) {
 
     GIVEN( "a Deck of cards." ) {
 		Deck deck = Deck();
 
         WHEN( "I count them." ) {
-			int num_cards = deck.getSize();
+			unsigned int num_cards = deck.getSize();
 
             THEN( "I have 52." ) {
 				CHECK(num_cards == 52);
@@ -26,8 +26,8 @@ SCENARIO( "Deck Operations.", "[card]" ) {
 
         WHEN( "I search them for duplicates." ) {
             bool match_found = false;
-            int size = deck.getSize();
-            for(int i = 0; i < size; i++) {
+            unsigned int size = deck.getSize();
+            for(unsigned int i = 0; i < size; i++) {
                 auto card = deck.draw();
                 drawn_card = std::find(drawn_cards.begin(), drawn_cards.end(), card);
                 if(drawn_card != drawn_cards.end())
@@ -52,8 +52,8 @@ SCENARIO( "Deck Operations.", "[card]" ) {
 
             THEN( "I have different ordering." ) {
                 bool identical = true;
-                int size = deck1.getSize();
-                for(int i = 0; i < size; i++) {
+                unsigned int size = deck1.getSize();
+                for(unsigned int i = 0; i < size; i++) {
                     auto card1 = deck1.draw();
                     auto card2 = deck2.draw();
                     if(card1 != card2) {
@@ -74,8 +74,8 @@ SCENARIO( "Deck Operations.", "[card]" ) {
         WHEN( "I do nothing to them." ) {
             THEN( "they have the same ordering." ) {
                 bool identical = true;
-                int size = deck1.getSize();
-                for(int i = 0; i < size; i++) {
+                unsigned int size = deck1.getSize();
+                for(unsigned int i = 0; i < size; i++) {
                     auto card1 = deck1.draw();
                     auto card2 = deck2.draw();
                     if(card1 != card2) {

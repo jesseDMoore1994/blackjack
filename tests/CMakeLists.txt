@@ -1,6 +1,6 @@
 project(blackjack_tests)
 add_subdirectory(Catch2)
-add_executable(tests test_card.cpp test_deck.cpp)
+add_executable(tests test_card.cpp test_deck.cpp test_player.cpp test_game.cpp)
 install(
     TARGETS tests 
     RUNTIME DESTINATION bin

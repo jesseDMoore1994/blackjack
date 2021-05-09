@@ -4,11 +4,13 @@
 #include <vector>
 class Deck {
     private:
-        std::vector<Card> cards; 
+        std::vector<Card> _cards;
     public:
         Deck();
-        int getSize();
+        unsigned int getSize();
         Card draw();
+        void populate();
         void shuffle();
+        void reset();
 };
 #endif
